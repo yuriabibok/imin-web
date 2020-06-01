@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import Teams from './components/Teams/Teams';
 
+import rootReducer from './redux/rootReducer';
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/'>
+          <Redirect to='/home' />
+        </Route>
+        <Route path='/home' component={Teams} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
