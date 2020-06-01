@@ -1,6 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import api from './services/api';
+
+async function getGames(): Promise<any> {
+  const result = await api.games.upcoming();
+
+  console.log(result);
+}
 
 function App() {
   return (
@@ -8,7 +15,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          {getGames()}
         </p>
         <a
           className="App-link"
