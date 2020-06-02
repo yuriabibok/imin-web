@@ -6,22 +6,22 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import Teams from './components/Teams/Teams';
 
 import rootReducer from './redux/rootReducer';
-import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import Upcoming from './components/pages/Upcoming/Upcoming';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <Router>
       <Switch>
         <Route exact path='/'>
           <Redirect to='/home' />
         </Route>
-        <Route path='/home' component={Teams} />
+        <Route path='/home' component={Upcoming} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
