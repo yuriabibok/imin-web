@@ -10,19 +10,24 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './redux/rootReducer';
 import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import Upcoming from './components/pages/Upcoming/Upcoming';
+import { Container } from '@material-ui/core';
+import GamePage from './components/pages/GamePage/GamePage';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <Switch>
-        <Route exact path='/'>
-          <Redirect to='/home' />
-        </Route>
-        <Route path='/home' component={Upcoming} />
-      </Switch>
-    </Router>
-  </Provider>,
+  <Container maxWidth="lg">
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Redirect to='/home' />
+          </Route>
+          <Route path='/home' component={Upcoming} />
+          <Route path='/game/:id' component={GamePage} />
+        </Switch>
+      </Router>
+    </Provider>
+  </Container>,
   document.getElementById('root')
 );
 

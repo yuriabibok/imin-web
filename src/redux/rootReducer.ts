@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { upcoming } from './games/games.reducer';
+import { upcoming, game } from './games/games.reducer';
 
 export default combineReducers({
   upcoming,
+  game,
 });
