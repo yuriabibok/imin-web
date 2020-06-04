@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { Teams } from './components/Teams/Teams';
 import { TeamDetails } from './components/Teams/TeamDetails';
 import { Upcoming } from './components/Games/Upcoming';
 import { GameDetails } from './components/Games/GameDetails';
+import { withHeader } from './components/withHeader/withHeader';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
@@ -18,12 +19,12 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path='/'>
-          <Redirect to='/home' />
+          <Redirect to='/upcoming' />
         </Route>
-        <Route path='/teams/:id' component={TeamDetails} />
-        <Route path='/teams' component={Teams} />
-        <Route path='/games/:id' component={GameDetails} />
-        <Route path='/upcoming' component={Upcoming} />
+        <Route path='/teams/:id' component={withHeader(TeamDetails)} />
+        <Route path='/teams' component={withHeader(Teams)} />
+        <Route path='/games/:id' component={withHeader(GameDetails)} />
+        <Route path='/upcoming' component={withHeader(Upcoming)} />
       </Switch>
     </Router>
   </Provider>,
