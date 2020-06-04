@@ -7,4 +7,8 @@ export default {
     upcoming: withBaseUrl('/games/upcoming'),
     get: (id: string) => withBaseUrl(`/games/${id}`),
   },
+  teams: {
+    all: withBaseUrl('/teams'),
+    get: (id: string) => withBaseUrl(`/teams/${id}`),
+  },
 };

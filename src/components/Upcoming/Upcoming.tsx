@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Games } from '../../Games/Games';
+import { Games } from '../Games/Games';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as creators from '../../../redux/games/games';
-import { GameDTO } from '../../../models/GameDTO';
+import * as creators from '../../redux/games/games';
+import { GameDTO } from '../../models/GameDTO';
 
 class Upcoming extends React.Component<IUpcomingProps> {
   public async componentDidMount(): Promise<void> {

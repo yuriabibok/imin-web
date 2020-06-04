@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as creators from '../../../redux/games/games';
-import { GameDTO } from '../../../models/GameDTO';
+import * as creators from '../../redux/games/games';
+import { GameDTO } from '../../models/GameDTO';
 import { RouteComponentProps } from 'react-router-dom';
 
 class GamePage extends React.Component<IGamePageProps & IGamePageDispatchProps> {
@@ -34,19 +34,13 @@ export default connect(
   dispatch => bindActionCreators(creators, dispatch)
 )(GamePage);
 
-// export interface IGamePageProps {
-//   game: GameDTO;
-//   fetchGame: any;
-// }
-
 interface IGamePageRouterProps {
-  id: string;   // This one is coming from the router
+  id: string;
 }
 
 type IGamePageProps = RouteComponentProps<IGamePageRouterProps>
 
 interface IGamePageDispatchProps {
-  // Add your dispatcher properties here
   game: GameDTO;
   fetchGame: any;
 }
