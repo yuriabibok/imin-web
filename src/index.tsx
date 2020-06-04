@@ -6,13 +6,14 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { Container } from '@material-ui/core';
+import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
 import rootReducer from './redux/rootReducer';
-import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
-import { Container } from '@material-ui/core';
-import GamePage from './components/GamePage/GamePage';
 import { Teams } from './components/Teams/Teams';
-import { TeamsDetails } from './components/Teams/TeamDetails';
+import { TeamDetails } from './components/Teams/TeamDetails';
+import { Upcoming } from './components/Games/Upcoming';
+import { GameDetails } from './components/Games/GameDetails';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
@@ -23,9 +24,10 @@ ReactDOM.render(
           <Route exact path='/'>
             <Redirect to='/home' />
           </Route>
-          <Route path='/teams/:id' component={TeamsDetails} />
+          <Route path='/teams/:id' component={TeamDetails} />
           <Route path='/teams' component={Teams} />
-          <Route path='/game/:id' component={GamePage} />
+          <Route path='/games/:id' component={GameDetails} />
+          <Route path='/upcoming' component={Upcoming} />
         </Switch>
       </Router>
     </Provider>
