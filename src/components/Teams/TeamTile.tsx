@@ -1,21 +1,36 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { TeamDTO } from '../../models/TeamDTO';
-import { Link } from 'react-router-dom';
+import { Tile } from '../Tile/Tile';
 
 interface ITeamTileProps {
   team: TeamDTO;
 }
 
+const useStyles = makeStyles({
+  content: {
+    color: 'rgba(0, 0, 0, 0.87)',
+    textDecoration: 'none',
+    padding: 10,
+  },
+  teamName: {
+    padding: 0,
+  },
+});
+
 export const TeamTile = ({ team }: ITeamTileProps) => {
+  const classes = useStyles();
+
   return (
-    <Link key={team.id} to={`/teams/${team.id}`}>
-      <div>
-        {team && <div>
-          <div>{team.name}</div>
-          <div>{team.capacity}</div>
-        </div>}
-      </div>
-    </Link>
+    <Tile url={`/teams/${team.id}`}>
+      {
+        team &&
+        <div className={classes.content}>
+          <Typography className={classes.teamName}>{team.name}</Typography>
+        </div>
+      }
+    </Tile>
   );
 };
