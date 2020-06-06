@@ -5,7 +5,7 @@ import { GameDTO } from '../../models/GameDTO';
 import { fetchUpcomingGames } from '../../redux/games/games';
 import { GameTile } from './GameTile';
 
-export const Upcoming = () => {
+export const UpcomingGames = () => {
   const games: GameDTO[] = useSelector((state: any) => state.games.upcoming);
   const dispatch = useDispatch();
 
@@ -14,7 +14,7 @@ export const Upcoming = () => {
   });
 
   return (
-    <div>
+    <div className='upcoming'>
       {games.map(game => (
         <GameTile key={game.id} game={game} />
       ))}

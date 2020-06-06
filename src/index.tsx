@@ -9,9 +9,9 @@ import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-d
 import rootReducer from './redux/rootReducer';
 import { Teams } from './components/Teams/Teams';
 import { TeamDetails } from './components/Teams/TeamDetails';
-import { Upcoming } from './components/Games/Upcoming';
+import { UpcomingGames } from './components/Games/Upcoming';
 import { GameDetails } from './components/Games/GameDetails';
-import { withHeader } from './components/withHeader/withHeader';
+import { mainWrapper } from './components/mainWrapper/mainWrapper';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
@@ -21,10 +21,10 @@ ReactDOM.render(
         <Route exact path='/'>
           <Redirect to='/upcoming' />
         </Route>
-        <Route path='/teams/:id' component={withHeader(TeamDetails)} />
-        <Route path='/teams' component={withHeader(Teams)} />
-        <Route path='/games/:id' component={withHeader(GameDetails)} />
-        <Route path='/upcoming' component={withHeader(Upcoming)} />
+        <Route path='/teams/:id' component={mainWrapper(TeamDetails)} />
+        <Route path='/teams' component={mainWrapper(Teams)} />
+        <Route path='/games/:id' component={mainWrapper(GameDetails)} />
+        <Route path='/upcoming' component={mainWrapper(UpcomingGames)} />
       </Switch>
     </Router>
   </Provider>,
