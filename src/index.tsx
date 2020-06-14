@@ -17,6 +17,7 @@ import { TeamDetails } from './components/Teams/TeamDetails';
 import { UpcomingGames } from './components/Games/Upcoming';
 import { GameDetails } from './components/Games/GameDetails';
 import { mainWrapper } from './components/mainWrapper/mainWrapper';
+import { pages } from './resources/links';
 
 const store = createStore(
   rootReducer,
@@ -30,11 +31,11 @@ ReactDOM.render(
           <Redirect to="/upcoming" />
         </Route>
         <Route path="/teams/:id" component={mainWrapper(TeamDetails)} />
-        <Route path="/teams" component={mainWrapper(Teams, 'Teams')} />
+        <Route path="/teams" component={mainWrapper(Teams, pages.teams)} />
         <Route path="/games/:id" component={mainWrapper(GameDetails)} />
         <Route
           path="/upcoming"
-          component={mainWrapper(UpcomingGames, 'Upcoming games')}
+          component={mainWrapper(UpcomingGames, pages.upcoming)}
         />
       </Switch>
     </Router>

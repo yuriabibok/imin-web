@@ -40,7 +40,7 @@ export const GameTile = ({ game }: IGameTileProps) => {
             </div>
           </div>
           <div className={classes.players}>
-            <div>{`${game.players.length}/${game.team.capacity}`}</div>
+            <div>{`${game.players.length} / ${game.team.capacity}`}</div>
           </div>
         </div>
       }
