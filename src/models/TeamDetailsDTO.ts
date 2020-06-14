@@ -1,10 +1,10 @@
-import { PlayerDTO } from './PlayerDTO';
 import { GameDTO } from './GameDTO';
+import { PlayerInGameDTO } from './PlayerDTO';
 
 export interface TeamDetailsDTO {
-  id: number;
+  id: string;
   name: string;
   capacity: number;
-  players: PlayerDTO[];
+  players: PlayerInGameDTO[];
   games: GameDTO[];
 }

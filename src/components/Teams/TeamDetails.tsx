@@ -13,7 +13,7 @@ export const TeamDetails = ({ match: { params: { id } } }: ITeamDetailsProps) =>
 
   useEffect(() => {
     dispatch(fetchTeam(id));
-  });
+  }, [dispatch, id]);
 
   return (
     <div>
@@ -25,7 +25,7 @@ export const TeamDetails = ({ match: { params: { id } } }: ITeamDetailsProps) =>
             <div key={game.id}>{game.title}</div>
           ))}
           {team.players.map(player => (
-            <div key={player.id}>{player.firstName}</div>
+            <div key={player.id}>{player.name}</div>
           ))}
         </div>
       }

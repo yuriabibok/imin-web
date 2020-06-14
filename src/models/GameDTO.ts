@@ -1,10 +1,9 @@
-import { PlayerDTO } from './PlayerDTO';
 import { TeamDTO } from './TeamDTO';
 
 export interface GameDTO {
-  id: number;
+  id: string;
   title: string;
   date: Date;
-  players: PlayerDTO[];
+  playersCount: number;
   team: TeamDTO;
 }

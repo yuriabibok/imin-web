@@ -1,5 +1,5 @@
 export interface TeamDTO {
-  id: number;
+  id: string;
   name: string;
   capacity: number;
 }

@@ -11,7 +11,7 @@ export const UpcomingGames = () => {
 
   useEffect(() => {
     dispatch(fetchUpcomingGames());
-  });
+  }, [dispatch]);
 
   return (
     <div className='upcoming'>

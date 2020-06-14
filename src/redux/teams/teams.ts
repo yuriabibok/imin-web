@@ -13,4 +13,3 @@ export const fetchTeam = (id: string) => async (dispatch: any) => {
   const team = await api.teams.get(id);
   dispatch(fetchTeamAction(team));
 };
-

@@ -12,7 +12,7 @@ export const Teams = () => {
 
   useEffect(() => {
     dispatch(fetchTeams());
-  });
+  }, [dispatch]);
 
   return (
     <div className='teams'>

@@ -1,7 +1,5 @@
-export interface PlayerDTO {
-  id: number;
-  firstName: string;
-  lastName: string;
-  age: number;
-  email: string;
+export interface PlayerInGameDTO {
+  id: string;
+  name: string;
+  attendance: boolean;
 }
