@@ -27,7 +27,7 @@ export const TeamTile = ({ team }: ITeamTileProps) => {
     <Tile url={`/teams/${team.id}`}>
       {
         <div className={classes.content}>
-          <Typography className={classes.teamName}>{team.name}</Typography>
+          <div className={classes.teamName}>{team.name}</div>
         </div>
       }
     </Tile>

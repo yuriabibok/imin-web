@@ -30,7 +30,7 @@ ReactDOM.render(
           <Redirect to="/upcoming" />
         </Route>
         <Route path="/teams/:id" component={mainWrapper(TeamDetails)} />
-        <Route path="/teams" component={mainWrapper(Teams)} />
+        <Route path="/teams" component={mainWrapper(Teams, 'Teams')} />
         <Route path="/games/:id" component={mainWrapper(GameDetails)} />
         <Route
           path="/upcoming"
