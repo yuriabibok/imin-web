@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import { GameDTO } from '../../models/GameDTO';
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import { Tile } from '../Tile/Tile';
 
 interface IGameTileProps {
@@ -14,9 +14,14 @@ const useStyles = makeStyles({
     color: 'rgba(0, 0, 0, 0.87)',
     textDecoration: 'none',
     padding: 10,
+    display: 'flex',
   },
   raw: {
     padding: 0,
+  },
+  players: {
+    marginLeft: 'auto',
+    order: 2,
   },
 });
 
@@ -27,8 +32,16 @@ export const GameTile = ({ game }: IGameTileProps) => {
     <Tile url={`/games/${game.id}`}>
       {
         <div className={classes.content}>
-          <Typography className={classes.raw}>{game.title}</Typography>
-          <Typography className={classes.raw}>{moment(game.date).format('dddd, d MMMM yyyy, HH:mm')}</Typography>
+          <div>
+            <div className={classes.raw}>{game.team.name}</div>
+            <div className={classes.raw}>{game.title}</div>
+            <div className={classes.raw}>
+              {moment(game.date).format('LLLL')}
+            </div>
+          </div>
+          <div className={classes.players}>
+            <div>{`${game.players.length}/${game.team.capacity}`}</div>
+          </div>
         </div>
       }
     </Tile>

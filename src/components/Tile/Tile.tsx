@@ -11,10 +11,10 @@ const useStyles = makeStyles({
   card: {
     margin: 3,
   },
-  cardAction: {
-  },
+  cardAction: {},
   link: {
     padding: 5,
+    textDecoration: 'none',
   },
 });
 
