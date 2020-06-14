@@ -9,10 +9,12 @@ interface ITileProps {
 
 const useStyles = makeStyles({
   card: {
-    marginTop: 3,
-    padding: '3px 0',
+    margin: 3,
   },
   cardAction: {
+  },
+  link: {
+    padding: 5,
   },
 });
 
@@ -22,7 +24,7 @@ export const Tile = ({ children, url }: ITileProps) => {
   return (
     <Card className={classes.card}>
       <CardActionArea className={classes.cardAction}>
-        <Link to={url}>
+        <Link to={url} className={classes.link}>
           {children}
         </Link>
       </CardActionArea>
